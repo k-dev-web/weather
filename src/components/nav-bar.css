@@ -1,0 +1,14 @@
+img {
+    height: 50px;
+}
+.nav-wrapper {
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    justify-content: space-between;
+height: 9vh;
+}
+.nav{
+    height: 10vh;
+    overflow: hidden;
+}

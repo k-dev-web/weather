@@ -1,0 +1,51 @@
+.card {
+    position: relative;
+    margin: 20px;
+    overflow: hidden;
+
+    background: white;
+    box-shadow: 5px 5px 15px;
+    border-radius: 10px;
+    display:flex;
+
+}
+
+.button-group-card{
+    margin-left: auto;
+    display:grid;
+}
+.button-card-nav{
+    margin:5px;
+}
+
+.weather{
+    display: flex;
+
+}
+.weather-item{
+    display: grid;
+    margin: 10px;
+}
+.card .card-content {
+    overflow: auto;
+}
+.button-card-nav{
+    background-color: #3f51b5;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    outline: 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0px 2px 2px lightgray;
+    transition: ease background-color 250ms;
+    margin: 5px;
+}
+.button-card-nav:hover {
+    background-color: #283593;
+}
+.button-card-nav:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
