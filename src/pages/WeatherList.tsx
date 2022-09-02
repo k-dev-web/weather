@@ -106,8 +106,7 @@ export const WeatherList = () => {
             case "delete":
                 for (let i = 0; i < cityArr.length - 1; i++) {
                     if (cityArr[i].index === index) {
-                        cityArr[i].index = index + 1;
-                        cityArr[i + 1].index = index;
+                        cityArr.splice(i,1)
                     }
                     else if(cityArr[i].index > index){
                         cityArr[i].index = cityArr[i].index -1;
