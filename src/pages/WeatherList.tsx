@@ -93,7 +93,6 @@ export const WeatherList = () => {
         if (city)
             cityArr = JSON.parse(city);
         else return;
-        console.log(type, index)
         switch (type) {
             case "up":
                 for (let i = 0; i < cityArr.length - 1; i++) {

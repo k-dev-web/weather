@@ -5,7 +5,6 @@ import moment from "moment";
 
 export const WeatherCard = (props: any) => {
     const {data} = props;
-    console.log(data.data.weather)
 
     return (
         <div className=" card  ">
