@@ -104,8 +104,9 @@ export const WeatherList = () => {
                 }
                 break;
             case "delete":
-                for (let i = 0; i < cityArr.length - 1; i++) {
+                for (let i = 0; i <= cityArr.length - 1; i++) {
                     if (cityArr[i].index === index) {
+                        console.log(cityArr[i])
                         cityArr.splice(i,1)
                     }
                     else if(cityArr[i].index > index){
@@ -192,7 +193,7 @@ export const WeatherList = () => {
                     onClick={(event) => {
                         changePage(currPage + 1)
                     }}
-                    className={`next ${currPage === totalPages[totalPages.length - 1] ? "disabled" : ""}`}
+                    className={`next ${currPage === totalPages[totalPages.length - 1]||!totalPages.length ? "disabled" : ""}`}
                 >
                     next
                 </button>

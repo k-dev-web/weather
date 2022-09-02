@@ -7,7 +7,7 @@ import {NavBar} from "./components/nav-bar";
 
 function App() {
     const routes = UseRoutes();
-   // localStorage.clear();
+    //localStorage.clear();
     return (
         <>
             <NavBar/>
