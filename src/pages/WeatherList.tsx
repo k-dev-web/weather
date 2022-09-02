@@ -95,7 +95,7 @@ export const WeatherList = () => {
         else return;
         switch (type) {
             case "up":
-                for (let i = 0; i < cityArr.length - 1; i++) {
+                for (let i = 0; i <= cityArr.length - 1; i++) {
                     if (cityArr[i].index === index) {
                         cityArr[i].index = index - 1;
                         cityArr[i - 1].index = index;
@@ -114,7 +114,7 @@ export const WeatherList = () => {
                 }
                 break;
             case "down":
-                for (let i = 0; i < cityArr.length - 1; i++) {
+                for (let i = 0; i <= cityArr.length - 1; i++) {
                     if (cityArr[i].index === index) {
                         cityArr[i].index = index + 1;
                         cityArr[i + 1].index = index;

@@ -59,7 +59,7 @@ export const WeatherCard = (props: any) => {
                         }}>delete
                 </button>
                 <button className={`button-card-nav `}
-                        disabled={(data.isLastPage && store.getState().weatherList.list[store.getState().weatherList.list.length - 1].index === data.data.index)||!data.data.index}
+                        disabled={(data.isLastPage && store.getState().weatherList.list[store.getState().weatherList.list.length - 1].index === data.data.index)||(!data.data.index&&data.data.index!==0)}
                         onClick={() => {
                             data.changeData('down', data.data.index)
                         }}>down
