@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Preparing the application for launch
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Create  .env file using example.env specifying your keys for google maps & https://api.openweathermap.org. \
+Run 
+### `npm i`
 
 ## Available Scripts
 
@@ -39,8 +41,12 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## TO DO
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-- notification system 50%
+-- add interfaces and replace all data of type any
+-- clean and optimize code
+-- add comments to code
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Preview application: 
+https://new-weather-test-app.herokuapp.com

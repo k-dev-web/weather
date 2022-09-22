@@ -36,17 +36,6 @@ export const WeatherList = () => {
             }
             setTotalPages(tP)
         }
-        /*
-        if (store.getState().toast.seen) {
-            let toast = store.getState().toast;
-            M.toast({
-                html: toast.type + ' : ' + toast.message,
-                classes: `${toast.type === 'Success' ? 'green' : 'red'}`
-            })
-            store.dispatch({type: 'SEEN TOAST'})
-        }
-
-         */
     })
     useEffect(() => {
         if (useEffectRun.current) {
@@ -65,11 +54,18 @@ export const WeatherList = () => {
                         store.dispatch({type: "ADD LIST SELF", data: {name: 'you location', weather: weather}});
                     })
                     .catch(err => {
-                        console.log(err)
+                        store.dispatch({
+                            type: 'NEW TOAST',
+                            data: {description: err, type: 'red', title: 'error get current location'}
+                        });
                     });
             })
         } catch (e) {
-            console.log(e)
+            store.dispatch({
+                type: 'NEW TOAST',
+                data: {description: e, type: 'red', title: 'error get current location'}
+            });
+
         }
     }, [])
     /*
@@ -106,12 +102,11 @@ export const WeatherList = () => {
             case "delete":
                 for (let i = 0; i <= cityArr.length - 1; i++) {
                     if (cityArr[i].index === index) {
-                        if(cityArr[i+1])
-                        cityArr[i+1].index = cityArr[i+1].index - 1;
-                        cityArr.splice(i,1);
-                    }
-                    else if(cityArr[i].index > index&&cityArr[i].index!=0){
-                        cityArr[i].index = cityArr[i].index -1;
+                        if (cityArr[i + 1])
+                            cityArr[i + 1].index = cityArr[i + 1].index - 1;
+                        cityArr.splice(i, 1);
+                    } else if (cityArr[i].index > index && cityArr[i].index != 0) {
+                        cityArr[i].index = cityArr[i].index - 1;
                     }
                 }
                 break;
@@ -149,7 +144,11 @@ export const WeatherList = () => {
                 state.length ? (
                         state.map((data: any, index: number) => {
 
-                            return <WeatherCard key={index} data={{data: data, changeData: changeData,isLastPage:totalPages[totalPages.length-1]===currPage}}></WeatherCard>
+                            return <WeatherCard key={index} data={{
+                                data: data,
+                                changeData: changeData,
+                                isLastPage: totalPages[totalPages.length - 1] === currPage
+                            }}></WeatherCard>
                         })
 
                     )
@@ -194,7 +193,7 @@ export const WeatherList = () => {
                     onClick={(event) => {
                         changePage(currPage + 1)
                     }}
-                    className={`next ${currPage === totalPages[totalPages.length - 1]||!totalPages.length ? "disabled" : ""}`}
+                    className={`next ${currPage === totalPages[totalPages.length - 1] || !totalPages.length ? "disabled" : ""}`}
                 >
                     next
                 </button>

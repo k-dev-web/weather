@@ -1,13 +1,10 @@
-const reducer = (state = {seen: false, type: '', message: ''}, action: any) => {
+const reducer = (state: any[] = [], action: any) => {
     switch (action.type) {
-        case "TOAST":
-            return {
-                seen: true, type: action.data?.type, message: action.data?.message
-            };
-        case "SEEN TOAST":
-            return {
-                seen: false, type: '', message: ''
-            };
+        case "NEW TOAST":
+            return [...state, action.data];
+
+        case "DELETE TOAST":
+            return action.data;
         default:
             return state;
     }

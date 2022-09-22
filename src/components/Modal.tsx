@@ -54,7 +54,7 @@ const Modal = (data: any) => {
     const showHideClassName = data.show ? 'modal display-block' : 'modal display-none';
     const {isLoaded} = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey:process.env.REACT_APP_GOOGLE_API_KEY?process.env.REACT_APP_GOOGLE_API_KEY:''
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY ? process.env.REACT_APP_GOOGLE_API_KEY : ''
     })
     const geocoder = new google.maps.Geocoder();
     const [map, setMap] = React.useState<any>(null);
@@ -79,7 +79,7 @@ const Modal = (data: any) => {
         setAutocompleteInput(searchString);
     }
     const {ref} = usePlacesWidget({
-        apiKey:process.env.REACT_APP_GOOGLE_API_KEY ,
+        apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
         onPlaceSelected: selectedCity,
     })
     const onLoad = (map: any) => {
@@ -105,19 +105,22 @@ const Modal = (data: any) => {
         if (latLng) {
             let savingData: any = {latLng: {lat: latLng.lat(), lng: latLng.lng()}, name: autocompleteInput};
             let storage: any = localStorage.getItem('city');
-            storage ? savingData.index = JSON.parse(storage).length  : savingData.index = 0;
+            storage ? savingData.index = JSON.parse(storage).length : savingData.index = 0;
             storage = JSON.parse(storage);
             if (storage && storage.find((item: any) => item.name === savingData.name)) {
-                console.log('error name already exist')
+                store.dispatch({
+                    type: 'NEW TOAST',
+                    data: {description: 'error name already exist', type: 'red', title: 'add new location'}
+                })
                 data.handleClose();
                 return;
             }
             savingData = storage ? [...storage, savingData] : [savingData];
-            savingData.sort((item1:any,item2:any)=> {
-                if (item1.index<item2.index) {
+            savingData.sort((item1: any, item2: any) => {
+                if (item1.index < item2.index) {
                     return -1;
                 }
-                if (item1.index>item2.index) {
+                if (item1.index > item2.index) {
                     return 1;
                 }
                 return 0;
@@ -125,7 +128,7 @@ const Modal = (data: any) => {
             localStorage.setItem('city', JSON.stringify(savingData));
             if (store.getState().weatherList.list.length < 5)
                 await getLocations(store.getState().weatherList.page)
-            else{
+            else {
                 store.dispatch({type: "LOAD PROD"});
             }
             data.handleClose();

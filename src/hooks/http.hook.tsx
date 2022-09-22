@@ -4,7 +4,7 @@ export const useHttp = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const request = useCallback(async (url:string, method = 'GET', body:any = null, headers:any = {}, isResponseJson = true) => {
+    const request = useCallback(async (url: string, method = 'GET', body: any = null, headers: any = {}, isResponseJson = true) => {
         setLoading(true);
         try {
             if (isResponseJson) {
@@ -24,7 +24,7 @@ export const useHttp = () => {
                 setLoading(false);
                 return response;
             }
-        } catch (e:any) {
+        } catch (e: any) {
             setLoading(false);
             setError(e.message);
             throw e;

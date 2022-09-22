@@ -1,15 +1,16 @@
 
-.weather-list{
+.weather-list {
     overflow-y: scroll;
     height: 90vh;
     width: 100vw;
 }
-.title-empty{
-    text-align:center;
-    margin-top:50vh;
+
+.title-empty {
+    text-align: center;
+    margin-top: 50vh;
 }
 
-.button-load{
+.button-load {
     background-color: #3f51b5;
     color: white;
     padding: 5px 15px;

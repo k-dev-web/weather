@@ -40,18 +40,16 @@ export const WeatherProvider = () => {
                         locations.push(items[i]);
                     } else continue;
                 }*/
-                Promise.all(weather).then(res=>{
-                    for (let i in res){
-                       locations[i].weather=res[i] ;
+                Promise.all(weather).then(res => {
+                    for (let i in res) {
+                        locations[i].weather = res[i];
                     }
                     store.dispatch({type: "LOAD LIST", data: {locations: locations, page: page}});
 
                 })
             }
-
-
         } catch (e) {
-            console.log(e)
+            store.dispatch({type: 'NEW TOAST', data: {description: e, type: 'red', title: 'error get location'}})
         }
     }
 
