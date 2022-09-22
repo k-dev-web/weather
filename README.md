@@ -43,9 +43,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## TO DO
 
--- notification system 50%
--- add interfaces and replace all data of type any
--- clean and optimize code
+-- notification system 50%\
+-- add interfaces and replace all data of type any\
+-- clean and optimize code\
 -- add comments to code
 
 ## Preview application: 
