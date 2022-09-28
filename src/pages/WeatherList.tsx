@@ -30,10 +30,11 @@ export const WeatherList = () => {
             store.getState().weatherList.dispatch({type: "PROD LOAD", data: store.getState().weatherList.list});
             const city = localStorage.getItem('city');
             let tP = [];
-            for (let i = 1; i <= Math.ceil(JSON.parse(city ? city : '').length / (latLng ? 4 : 5)); i++) {
-                if ((store.getState().weatherList.currPage - 2 < i && i < store.getState().weatherList.currPage + 2) || i === Math.ceil(JSON.parse(city ? city : '').length / (latLng ? 4 : 5)) || i === 1)
-                    tP.push(i)
-            }
+            if (city)
+                for (let i = 1; i <= Math.ceil(JSON.parse(city ? city : '').length / (latLng ? 4 : 5)); i++) {
+                    if ((store.getState().weatherList.currPage - 2 < i && i < store.getState().weatherList.currPage + 2) || i === Math.ceil(JSON.parse(city ? city : '').length / (latLng ? 4 : 5)) || i === 1)
+                        tP.push(i)
+                }
             setTotalPages(tP)
         }
     })
